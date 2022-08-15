@@ -13,7 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
-@Profile({"dev"}) //http://localhost/landingpage/swagger-ui.html
+@Profile({"dev"}) //http://localhost/landing/swagger-ui.html
 public class Swagger2Config {
 	
 	@Bean

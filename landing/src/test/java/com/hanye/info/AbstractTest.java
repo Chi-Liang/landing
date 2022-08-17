@@ -2,7 +2,7 @@ package com.hanye.info;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import com.hanye.info.service.GroceryService;
+import com.hanye.info.service.SeminarService;
 import com.hanye.info.service.MailJobService;
 
 @SpringBootTest
@@ -13,7 +13,7 @@ public class AbstractTest {
 	protected MailJobService mailJobService;
 	
 	@Autowired
-	protected GroceryService groceryService;
+	protected SeminarService seminarService;
 	
 //	@Autowired
 //	protected MockMvc mockMvc;

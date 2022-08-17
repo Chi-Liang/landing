@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document("groceryitems")
-public class GroceryItem {
+@Document("seminar")
+public class Seminar {
 
         @Id
         private String id;

@@ -1,5 +1,8 @@
 package com.hanye.info.model.mongo;
 
+import java.util.Date;
+
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,10 +15,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Document("seminar")
 public class Seminar {
-
+		
         @Id
-        private String id;
+        private Long seqNo = 0L;
         private String name;
-        private String category;
+        private String email;
+        private Long seminarId;
+        private String seminarSession;
+        private String groupId;
+        private Date createDate;
         
 }

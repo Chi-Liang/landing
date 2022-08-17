@@ -63,20 +63,28 @@
 									id="seminar-list">
 									<thead>
 										<tr>
-											<th>帳號</th>
-											<th>名稱</th>
-											<th>分類</th>
-											<th>操作</th>
+											<th>編號</th>
+											<th>姓名</th>
+											<th>email</th>
+											<th>研討會場次</th>
+											<th>文案群組groupId</th>
+											<th>新增日期</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr class="odd gradeX" th:each="seminar : ${seminarList}">
-											<td th:text="${seminar.id}"></td>
+											<td th:text="${seminar.seqNo}"></td>
 											<td th:text="${seminar.name}"></td>
-											<td th:text="${seminar.category}"></td>
+											<td th:text="${seminar.email}"></td>
+											<td th:text="${seminar.seminarSession}"></td>
+											<td th:switch="${seminar.groupId}">
+													<p th:case="1">group1</p>
+													<p th:case="2">group2</p>
+											</td>
+											<td th:text="${seminar.createDate}"></td>
 											<td>
-												<button class="btn btn-success" th:onclick="toEdit([[${seminar.id}]])">編輯</button>
-												<button class="btn btn-danger" th:onclick="deleteUser([[${seminar.id}]])">刪除</button>
+											<!-- <button class="btn btn-success" th:onclick="toEdit([[${seminar.seqNo}]])">編輯</button>-->
+												<button class="btn btn-danger" th:onclick="deleteUser([[${seminar.seqNo}]])">刪除</button>
 											</td>
 										</tr>
 									</tbody>
@@ -89,10 +97,10 @@
 		</div>
 		<form th:action="@{/auth/seminar/add}" id="toAddForm"></form>
 		<form th:action="@{/auth/seminar/edit}" id="toEditForm">
-			<input type="hidden" id="editId" name="id"/>
+			<input type="hidden" id="editId" name="seqNo"/>
 		</form>
 		<form th:action="@{/auth/seminar/delSubmit}" id="delForm" method="post">
-			<input type="hidden" id="delId" name="id"/>
+			<input type="hidden" id="delId" name="seqNo"/>
 		</form>
 	</div>
 </body>

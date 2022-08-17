@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import com.hanye.info.model.mongo.MongoSequence;
 import com.hanye.info.service.SeminarService;
 import com.hanye.info.vo.SeminarVo;
 
@@ -17,6 +19,7 @@ public class SeminarController {
 	
 	@Autowired
 	private SeminarService seminarService;
+	
 	
 	@RequestMapping("/list")
 	public String list(Model model) {
@@ -39,8 +42,8 @@ public class SeminarController {
 	}
 	
 	@GetMapping("/edit")
-	public String edit(@RequestParam String id, Model model) {
-		model.addAttribute("seminar", seminarService.findSeminar(id));
+	public String edit(@RequestParam Long seqNo, Model model) {
+		model.addAttribute("seminar", seminarService.findSeminar(seqNo));
 		return "seminar/edit";
 	}
 	
@@ -51,8 +54,8 @@ public class SeminarController {
 	}
 	
 	@PostMapping("/delSubmit")
-	public String delSubmit(@RequestParam String id) {
-		seminarService.deleteSeminar(id);
+	public String delSubmit(@RequestParam Long seqNo) {
+		seminarService.deleteSeminar(seqNo);
 		return "redirect:/auth/seminar/list";
 	}
 }

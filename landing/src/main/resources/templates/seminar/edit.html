@@ -21,6 +21,11 @@
 
 		});
 	});
+	
+	function setSeminarSession() {
+    	$("#seminarSession").val($("#whichGroup :selected").text());
+    }
+	
 </script>
 </head>
 <body>
@@ -42,20 +47,26 @@
 									<form id="seminarForm" role="form" th:action="@{/auth/seminar/editSubmit}"
 										th:object="${seminar}" method="post">
 										<div class="form-group">
-											<label>帳號</label> <input class="form-control"
-												th:field="*{id}" readonly>
+											<label>姓名</label> <input class="form-control" th:field="*{name}">
 											<p class="help-block"></p>
 										</div>
 										<div class="form-group">
-											<label>名稱</label> <input class="form-control"
-												th:field="*{name}">
+											<label>email</label> <input class="form-control" th:field="*{email}">
 											<p class="help-block"></p>
 										</div>
 										<div class="form-group">
-											<label>分類</label> <input class="form-control"
-												th:field="*{category}">
-											<p class="help-block"></p>
+											<label>  研討會場次
+												<select id="whichGroup" th:field="*{seminarId}"  th:onchange="'setSeminarSession()'" >
+													<option th:value="''" th:text="''"></option>
+												    <option th:value="'1'" th:text="台北1平日場"></option>
+												    <option th:value="'2'" th:text="台北1假日場"></option>
+												</select>
+											</label>
 										</div>
+										
+										<input style="display: none;" id="seminarSession" th:field="*{seminarSession}">
+										<input style="display: none;" id="seqNo" th:field="*{seqNo}">
+										<input style="display: none;" id="createDate" th:field="*{createDate}">
 
 										<button type="submit" class="btn btn-default">Submit</button>
 										<button type="reset" class="btn btn-default">Reset</button>

@@ -5,6 +5,12 @@
 
 <head>
 <title>線上研討會文案場次維護</title>
+
+<link th:href="@{/css/jquery-ui.min.css}" rel="stylesheet">
+<link th:href="@{/css/jquery-ui-timepicker-addon.css}" rel="stylesheet">
+<script th:src="@{/js/jquery-ui.min.js}"></script>
+<script th:src="@{/js/jquery-ui-timepicker-addon.min.js}"></script>
+
     <script type="text/javascript">
         $(document).ready(function() {
             $("#copysessionForm").validate({
@@ -20,6 +26,14 @@
                 }
 
             });
+            
+            $('#sessiondate').datepicker({
+                "dateFormat": "yy/mm/dd",
+  			    "yearRange":"-0:+10",
+  			    "changeMonth": true,
+  			    "changeYear": true
+            });
+            
         });
         
     </script>
@@ -53,7 +67,7 @@
 											<p class="help-block"></p>
 										</div>
 										<div class="form-group">
-											<label>場次時間</label> <input class="form-control" th:field="*{sessionTime}">
+											<label>場次時間</label> <input class="form-control" id="sessiondate" th:field="*{sessionTime}">
 											<p class="help-block"></p>
 										</div>
 										<button type="submit" class="btn btn-default">Submit</button>

@@ -26,36 +26,5 @@ public class SeminarController {
 		model.addAttribute("seminarList", seminarService.findAll());
 		return "seminar/list";
 	}
-	
-	@GetMapping("/add")
-	public String add(Model model) {
-		SeminarVo seminary = new SeminarVo();
-		model.addAttribute("seminar", seminary);
-		
-		return "seminar/add";
-	}
-	
-	@PostMapping("/addSubmit")
-	public String addSubmit(@ModelAttribute SeminarVo seminarVo) {	
-		seminarService.saveSeminar(seminarVo);
-		return "redirect:/auth/seminar/list";
-	}
-	
-	@GetMapping("/edit")
-	public String edit(@RequestParam Long seqNo, Model model) {
-		model.addAttribute("seminar", seminarService.findSeminar(seqNo));
-		return "seminar/edit";
-	}
-	
-	@PostMapping("/editSubmit")
-	public String editSubmit(@ModelAttribute SeminarVo seminarVo) {	
-		seminarService.updateSeminar(seminarVo);
-		return "redirect:/auth/seminar/list";
-	}
-	
-	@PostMapping("/delSubmit")
-	public String delSubmit(@RequestParam Long seqNo) {
-		seminarService.deleteSeminar(seqNo);
-		return "redirect:/auth/seminar/list";
-	}
+
 }

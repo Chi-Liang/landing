@@ -34,29 +34,11 @@ public class SeminarService {
 		return voList;
 	}
 
-	public SeminarVo findSeminar(Long seqNo) {
-		var seminar = seminarRepository.findById(seqNo).get();
-		var seminarVo = new SeminarVo();
-		entityToVo.copy(seminar, seminarVo, new BeanConverter());
-		return seminarVo;
-	}
-
 	public void saveSeminar(SeminarVo seminarVo) {
 		var seminar = new Seminar();
 		voToEntity.copy(seminarVo, seminar, null);
 		seminar.setSeqNo(mongoSequence.getNextId("autoSequence"));
-		seminar.setCreateDate(new Date());
 		seminarRepository.save(seminar);
 	}
 	
-	public void updateSeminar(SeminarVo seminarVo) {
-		var seminar = new Seminar();
-		voToEntity.copy(seminarVo, seminar, null);
-		seminar.setCreateDate(new Date());
-		seminarRepository.save(seminar);
-	}
-	
-	public void deleteSeminar(Long seqNo) {
-		seminarRepository.deleteById(seqNo);
-	}
 }

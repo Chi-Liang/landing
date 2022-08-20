@@ -1,9 +1,5 @@
 package com.hanye.info.vo;
 
-import java.util.Date;
-
-import org.springframework.data.annotation.CreatedDate;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,13 +8,12 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SeminarVo {
-
-        private Long seqNo;
+	
+	    private Long seqNo;
         private String name;
         private String email;
-        private Long seminarId;
-        private String seminarSession;
-        private String groupId;
-        private String createDate;
+        private String groupName;
+        private String sessionPlace;
+        private String sessionTime;
         
 }

@@ -15,12 +15,24 @@
         $(document).ready(function() {
             $("#copysessionForm").validate({
                 rules: {
-                    groupName : {
+                	groupNameId : {
+                    	required: true
+                    },
+                    sessionPlace : {
+                    	required: true
+                    },
+                    sessionTime : {
                     	required: true
                     }
                 },
                 messages : {
-                	groupName: {
+                	groupNameId: {
+                        required: "此欄位必填"
+                    },
+                    sessionPlace: {
+                        required: "此欄位必填"
+                    },
+                    sessionTime: {
                         required: "此欄位必填"
                     }
                 }

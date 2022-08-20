@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
@@ -32,7 +33,7 @@ public class CopySession {
 	@Column(length = 100)
 	private String sessionTime;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name="groupNameId", referencedColumnName="seqNo",insertable = false, updatable = false)
 	private CopyWriter copyWriter;
 	

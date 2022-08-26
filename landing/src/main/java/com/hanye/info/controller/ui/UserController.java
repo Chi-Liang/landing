@@ -1,4 +1,4 @@
-package com.hanye.info.controller;
+package com.hanye.info.controller.ui;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,57 +22,48 @@ public class UserController {
 	@RequestMapping("/list")
 	public String list(Model model) {
 		model.addAttribute("userList", userService.findAllExcludeAdmin());
-		
 		return "user/list";
 	}
 	
 	@GetMapping("/add")
 	public String add(Model model) {
-		UserVo user = new UserVo();
-		model.addAttribute("user", user);
-		
+		model.addAttribute("user", new UserVo());
 		return "user/add";
 	}
 	
 	@PostMapping("/addSubmit")
 	public String addSubmit(@ModelAttribute UserVo userDTO) {	
 		userService.saveUser(userDTO);
-		
 		return "redirect:/auth/user/list";
 	}
 	
 	@GetMapping("/edit")
 	public String edit(@RequestParam String uid, Model model) {
 		model.addAttribute("user", userService.findUser(uid));
-		
 		return "user/edit";
 	}
 	
 	@PostMapping("/editSubmit")
 	public String editSubmit(@ModelAttribute UserVo userDTO) {	
 		userService.editUser(userDTO);
-		
 		return "redirect:/auth/user/list";
 	}
 	
 	@GetMapping("/changePwd")
 	public String changePwd(@RequestParam String uid, Model model) {
 		model.addAttribute("user", userService.findUser(uid));
-		
 		return "user/changePwd";
 	}
 	
 	@PostMapping("/changePwdSubmit")
 	public String changePwdSubmit(@ModelAttribute UserVo userDTO) {
 		userService.changeUserPwd(userDTO);
-		
 		return "redirect:/auth/user/list";
 	}
 	
 	@PostMapping("/delSubmit")
 	public String delSubmit(@RequestParam String uid) {
 		userService.deleteUser(uid);
-		
 		return "redirect:/auth/user/list";
 	}
 }

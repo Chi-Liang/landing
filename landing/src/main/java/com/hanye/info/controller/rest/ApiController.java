@@ -1,4 +1,4 @@
-package com.hanye.info.rest;
+package com.hanye.info.controller.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,9 +9,6 @@ import com.hanye.info.service.MailJobService;
 import com.hanye.info.service.SeminarService;
 import com.hanye.info.vo.ReturnVo;
 import com.hanye.info.vo.SeminarVo;
-
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
 
 
 @RestController

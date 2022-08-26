@@ -1,4 +1,4 @@
-package com.hanye.info.controller;
+package com.hanye.info.controller.ui;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,46 +8,39 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.hanye.info.service.CopySessionService;
 import com.hanye.info.service.CopyWriterService;
-import com.hanye.info.vo.CopySessionVo;
 import com.hanye.info.vo.CopyWriterVo;
 
 @Controller
-@RequestMapping("/auth/copysession")
-public class CopySessionController {
-	
-	@Autowired
-	private CopySessionService copySessionService;
+@RequestMapping("/auth/copywriter")
+public class CopyWriterController {
 	
 	@Autowired
 	private CopyWriterService copywriterService;
 	
+	
 	@RequestMapping("/list")
 	public String list(Model model) {
-		model.addAttribute("copysessionList", copySessionService.findAll());
-		return "copysession/list";
+		model.addAttribute("copywriterList", copywriterService.findAll());
+		return "copywriter/list";
 	}
 	
 	@GetMapping("/add")
 	public String add(Model model) {
-		CopySessionVo copySession = new CopySessionVo();
-		model.addAttribute("copyWriterList", copywriterService.findAll());
-		model.addAttribute("copysession", copySession);
-		return "copysession/add";
+		model.addAttribute("copywriter", new CopyWriterVo(copywriterService.getMaxSeqNo(),""));
+		return "copywriter/add";
 	}
 	
 	@PostMapping("/addSubmit")
-	public String addSubmit(@ModelAttribute CopySessionVo copySessionVo) {	
-		copySessionService.saveCopySession(copySessionVo);
-		return "redirect:/auth/copysession/list";
+	public String addSubmit(@ModelAttribute CopyWriterVo copywriterVo) {	
+		copywriterService.saveCopywriter(copywriterVo);
+		return "redirect:/auth/copywriter/list";
 	}
 	
 	@PostMapping("/delSubmit")
 	public String delSubmit(@RequestParam Long seqNo) {
-		copySessionService.deleteCopySession(seqNo);
-		return "redirect:/auth/copysession/list";
+		copywriterService.deleteCopywriter(seqNo);
+		return "redirect:/auth/copywriter/list";
 	}
 	
 }

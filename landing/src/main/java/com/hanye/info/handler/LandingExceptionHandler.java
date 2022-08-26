@@ -4,7 +4,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-@ControllerAdvice(basePackages= {"com.hanye.info.controller"})
+@ControllerAdvice(basePackages= {"om.hanye.info.controller.ui"})
 public class LandingExceptionHandler {
 	
     @ExceptionHandler(value = { Exception.class })

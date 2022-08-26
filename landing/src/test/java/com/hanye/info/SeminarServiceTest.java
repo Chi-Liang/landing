@@ -8,7 +8,7 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class SeminarTest extends AbstractTest {
+public class SeminarServiceTest extends AbstractTest {
 
 	@Test
 	@Order(1)
@@ -19,7 +19,7 @@ public class SeminarTest extends AbstractTest {
 
 	@Test
 	@Order(2)
-	public void testFindSeminar() {
+	public void testFindAll() {
 		assertTrue(seminarService.findAll().size() > 0);
 	}
 

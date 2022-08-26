@@ -17,7 +17,7 @@ import com.hanye.info.batch.writer.MailItemWriter;
 
 @Configuration
 @EnableBatchProcessing
-public class MailBatchConfiguration {
+public class MailBatchConfig {
 	
 	@Autowired
 	private JobBuilderFactory jobBuilderFactory;

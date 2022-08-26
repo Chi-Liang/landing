@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
 import org.springframework.stereotype.Service;
 import com.hanye.info.convert.BeanConverter;
-import com.hanye.info.model.mongo.MongoSequence;
 import com.hanye.info.model.mongo.Seminar;
 import com.hanye.info.repository.mongo.SeminarRepository;
+import com.hanye.info.sequence.MongoSequence;
 import com.hanye.info.vo.SeminarVo;
 
 @Service

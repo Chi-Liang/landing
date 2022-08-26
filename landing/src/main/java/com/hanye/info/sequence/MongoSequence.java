@@ -1,4 +1,4 @@
-package com.hanye.info.model.mongo;
+package com.hanye.info.sequence;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.FindAndModifyOptions;
@@ -7,6 +7,8 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
+
+import com.hanye.info.model.mongo.AutoSequence;
 
 @Component
 public class MongoSequence {

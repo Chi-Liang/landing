@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.jupiter.api.Test;
 import com.hanye.info.vo.ReturnVo;
 
-public class testSendMail extends AbstractTest {
+public class MailServiceTest extends AbstractTest {
 
 	@Test
 	public void testStartMailJob() {

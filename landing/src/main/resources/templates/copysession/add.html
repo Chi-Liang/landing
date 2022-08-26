@@ -71,7 +71,7 @@
 									<form id="copysessionForm" role="form" th:action="@{/auth/copysession/addSubmit}" th:object="${copysession}" method="post">
 										<div class="form-group">
 											<label>文案群群組名稱</label>
-											<select class="form-control" th:field="*{groupNameId}" >
+											<select class="form-control" th:field="*{groupId}" >
                                         		<option th:each="copyWriter : ${copyWriterList}" th:value="${copyWriter.seqNo}" th:text="${copyWriter.groupName}">
                                         		</option>
                                     		</select>

@@ -18,16 +18,12 @@ public class CopySession {
     private Long seqNo;
 	
 	@Column(length = 100)
-	private Long groupNameId;
+	private String groupName;
 	
 	@Column(length = 100)
 	private String sessionPlace;
 	
 	@Column(length = 100)
 	private String sessionTime;
-	
-	@ManyToOne
-	@JoinColumn(name="groupNameId", referencedColumnName="seqNo",insertable = false, updatable = false)
-	private CopyWriter copyWriter;
 	
 }

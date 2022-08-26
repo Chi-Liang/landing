@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class CopySessionVo {
 	
 	private Long seqNo;
-	private Long groupNameId;
+	private Long groupId;
 	private String groupName;
 	private String sessionPlace;
 	private String sessionTime;

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.hanye.info.convert.BeanConverter;
 import com.hanye.info.model.mysql.CopySession;
 import com.hanye.info.repository.mysql.CopySessionRepository;
+import com.hanye.info.repository.mysql.CopyWriterRepository;
 import com.hanye.info.vo.CopySessionVo;
 
 @Service
@@ -16,7 +17,10 @@ public class CopySessionService {
 	
 	@Autowired
 	private CopySessionRepository copySessionRepository;
-
+	
+	@Autowired
+	private CopyWriterRepository copywriterRepository;
+	
 	private static BeanCopier voToEntity = BeanCopier.create(CopySessionVo.class, CopySession.class, false);
 	private static BeanCopier entityToVo = BeanCopier.create(CopySession.class, CopySessionVo.class, true);
 	
@@ -25,7 +29,6 @@ public class CopySessionService {
 				.map(copywriter -> {
 					var vo = new CopySessionVo();
 					entityToVo.copy(copywriter, vo, new BeanConverter());
-					vo.setGroupName(copywriter.getCopyWriter().getGroupName());
 					return vo;
 				}).collect(Collectors.toList());
 		
@@ -42,9 +45,9 @@ public class CopySessionService {
 	}
 	
 	public void saveCopySession(CopySessionVo copySessionVo) {
-		
 		var copySession = new CopySession();
 		voToEntity.copy(copySessionVo, copySession, null);
+		copySession.setGroupName(copywriterRepository.getGroupName(copySessionVo.getGroupId()));
 		copySessionRepository.save(copySession);
 		
 	}

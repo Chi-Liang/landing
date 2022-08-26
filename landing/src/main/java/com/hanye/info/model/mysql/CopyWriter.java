@@ -15,10 +15,7 @@ public class CopyWriter {
 	@Id
     private Long seqNo;
 	
-	@Column(length = 1000)
+	@Column(length = 100)
 	private String groupName;
-	
-	@OneToMany(mappedBy = "copyWriter")
-	private List<CopySession> copySessions;
 	
 }

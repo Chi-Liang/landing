@@ -1,18 +1,12 @@
 package com.hanye.info.service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cglib.beans.BeanCopier;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import com.hanye.info.constant.RoleEnum;
 import com.hanye.info.convert.BeanConverter;
 import com.hanye.info.model.mysql.CopyWriter;
-import com.hanye.info.model.mysql.Role;
-import com.hanye.info.model.mysql.User;
 import com.hanye.info.repository.mysql.CopyWriterRepository;
 import com.hanye.info.vo.CopyWriterVo;
 

@@ -16,4 +16,13 @@ public class SeminarVo {
         private String sessionPlace;
         private String sessionTime;
         
+		public SeminarVo(String groupName, String sessionPlace, String sessionTime) {
+			super();
+			this.groupName = groupName;
+			this.sessionPlace = sessionPlace;
+			this.sessionTime = sessionTime;
+		}
+        
+        
+        
 }

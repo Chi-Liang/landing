@@ -13,14 +13,16 @@ public class SeminarServiceTest extends AbstractTest {
 	@Test
 	@Order(1)
 	public void testSaveSeminar() {
+		
 		seminarService.saveSeminar(
-				new SeminarVo(null, "fundodo", "aaa@gmail.com","不動產" , "台北", "2020/08/25 08:00"));
+				new SeminarVo(null, "fundodo", "aaa@gmail.com","不動產" , "新竹", "2022/11/30 08:00"));
+		
 	}
 
 	@Test
 	@Order(2)
 	public void testFindAll() {
-		assertTrue(seminarService.findAll().size() > 0);
+		assertTrue(seminarService.findAll("","","").getSeminarVoList().size() > 0);
 	}
 
 }

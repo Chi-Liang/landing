@@ -6,6 +6,6 @@ import com.hanye.info.model.mongo.Seminar;
 
 @Repository
 public interface SeminarRepository extends MongoRepository<Seminar, Long> {
-
-    
+	
+	
 }
